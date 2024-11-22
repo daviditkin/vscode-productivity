@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Convert .kusto to JSON string",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-c",
+                "import sys, json; print(json.dumps(open(sys.argv[1], 'r', encoding='utf-8').read()))",
+                "${file}"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Convert JSON string to .kusto",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-c",
+                "import sys, json; print(json.loads(open(sys.argv[1], 'r', encoding='utf-8').read()))",
+                "${file}"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
